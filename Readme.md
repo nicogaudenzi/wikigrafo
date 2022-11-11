@@ -1,4 +1,4 @@
-    WikiGrafo es una herramienta gratiuta y abierta diseñada para explorar relaciones entre entidades de [[https://www.wikidata.org/wiki/Wikidata:Main_Page]] Wikidata de manera interactiva.
+    WikiGrafo es una herramienta gratiuta y abierta diseñada para explorar relaciones entre entidades de [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page) Wikidata de manera interactiva.
       ### Motivaciones
        En mi experiencia con los procesos de aprendizaje, despues de años como aprendiz, como maestro y como investigador en epistemologia, he llegado a la conviccion de que para que la informacion se convierta en entendimiento, no basta con conocer la definicion y el contenido de los conceptos: es fundamental estudiar las relaciones entre ellos.
         Por esta razon, herramientas nemotecnicas como los "mapas mentales" o el uso de codigos de colores o etiquetas en el proceso de tomar notas, asi como las tecnologias modernas de visualizacion de datos resultan indispesables en un contexto en el que la informacion abunda al punto de ser abrumadora.
