@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>WikiGrafos</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<!-- Template Main CSS File --> 
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <link rel="stylesheet" href="./css/force_directed_graph.css" />
+  <link rel="stylesheet" href="./css/async_notifications.css"/>
+  <link rel="stylesheet" href="./css/modal.css"/>
+  <link rel="stylesheet" href="./css/topnavbar.css"/>
+ 
+</head>
+<body>
+  <div class="topnav" id="myTopnav">
+    <h2 style="display: inline;float: left;margin-left: 20px;">WikiGrafos</h2>
+    <a href="javascript:void(0);" id="supportBtn">Apoya</a>
+    <a href="javascript:void(0);" id="exampleBtn">Ejemplos</a>
+    <a href="#javascript:void(0);"id="learnBtn">Aprende</a>
+    <a href="javascript:void(0);" id="aboutBtn">Acerca de</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <!-- Trigger/Open The Modal -->
+  <button style="position: fixed;margin-left:-10px ; margin-top: 70px;background-color: #f2f2f2;font-size: x-large;z-index: 1;" id="newSearchBtn">
+    <i class="material-icons">add</i>
+  </button>
+  <button style="position: fixed;margin-left:-10px ; margin-top: 120px;background-color: #f2f2f2;font-size: x-large;z-index: 1;" id="loadBtn">
+    <i class="material-icons">file_upload</i>
+  </button>
+  <button style="position: fixed;margin-left:-10px ; margin-top: 170px;background-color: #f2f2f2;font-size: x-large;z-index: 1;" id="saveBtn">
+    <i class="material-icons">file_download</i>
+  </button>
+  <div id="newSearchModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Nueva Busqueda</h2>
+        <p>Selecciona una entidad para iniciar la grafica</p>
+      </div>
+        <select style="display: inline;margin: 10px;"id="languageSelector" data-role="slider">
+        </select><span style="margin-left: 10px;color:#1b70ff">Idioma de la búsqueda </span>
+        <section style="margin-top: 10px; margin-left: 10px;">
+          <input type="checkbox" id="addToCurrentSearch" name="addToCurrentSearch">
+          <label for="addToCurrentSearch"> Añadir a la busqueda actual</label><br>
+          <input name="suggestions" list="suggestions" id="suggestions-choice" style="width: 300px;"/>
+          <datalist id="suggestions"> 
+          </datalist>
+          <input type="button" value="Iniciar">
+    </section> 
+  </div>
+</div>
+<div id="loadModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Cargar grafica</h2>
+      <p>Empieza una grafica desde un estado anterior (Ojo: sobreescribe el estado actual)</p>
+    </div>
+  <section style="margin-top: 10px; margin-left: 10px;">
+    <input type="file" id="myFile" name="filename">
+    <input type="submit" id="loadFileBtn" value="Cargar">
+  </section> 
+</div>
+</div>
+<div id="saveModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Guardar grafica</h2>
+      <p>Descarga el estado actual de la grafica</p>
+    </div>
+  <section style="margin-top: 10px; margin-left: 10px;">
+    <!-- <input name="filename" style="width: 300px;"/> -->
+    
+      <input type="button" id="download" value="Descarga">
+    </section> 
+  </div>
+</div>
+<div id="learnModal" class="modal">
+  <div class="modal-content" style="padding: 15px;margin-top: 2%;">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Aprende</h2>
+      <p>Guias paso a paso para el uso de wikigrafo</p>
+    </div>
+    <section style="margin-top: 10px; margin-left: 10px;">
+     <details>
+        <summary>Empezar nueva busqueda</summary>
+        <iframe src="https://scribehow.com/embed/Nueva_busqueda__DJe3eyfkQhG1gmZR7qJ_RQ" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+     </details>
+     <details>
+      <summary>Añadir un nuevo nodo</summary>
+      <iframe src="https://scribehow.com/embed/Anadir_un_nodo_nuevo__7B6hP980RmCEVRcBAgaKwg" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+   </details>
+   <details>
+        <summary>Relaciones Inversas y Links</summary>
+        <iframe src="https://scribehow.com/embed/Relacion_inversa_y_links__M8kSk_SvQaiPapvPvZTsWw" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+    </details>
+    <details>
+      <summary>Seleccionar un nodo distinto y actualizar la informacion</summary>
+      <iframe src="https://scribehow.com/embed/Seleccionar_un_nodo_y_actualizar_la_informacion__h3xKS8auQBy-bhU85i3ILw" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+  </details> 
+  <details>
+    <summary>Pan y zoom</summary>
+    <iframe src="https://scribehow.com/embed/Pan_y_Zoom__k417ydRyR_OjRuI0YR19pQ" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+  </details> 
+  <details>
+    <summary>Añadir multiples nodos simultaneamente</summary>
+    <iframe src="https://scribehow.com/embed/Anadir_multiples_nodos__v_xp4v2PTLaH3q-ydAkcgg" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+  </details> 
+  <details>
+    <summary>Cantidades y Recursos</summary>
+    <iframe src="https://scribehow.com/embed/Cantidades_y_Recursos__mln0BPvPR32Oy6ugMl6TNw" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+  </details> 
+  <details>
+    <summary>Guardar grafica</summary>
+    <iframe src="https://scribehow.com/embed/Guardar_grafica__rGI_w8DvROKmyLnrOgP_jA" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+  </details> 
+  <details>
+    <summary>Cargar grafica</summary>
+    <iframe src="https://scribehow.com/embed/Cargar_grafica__Mgie3g5OSjOJ955pqVphIA" width="640" height="400" allowfullscreen frameborder="0"></iframe>
+  </details> 
+    </section>
+  </div>
+</div>
+
+<div id="exampleModal" class="modal">
+  <div class="modal-content" style="padding: 15px;margin-top: 2%;">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Ejemplos</h2>
+      <p>Algunas busquedas interesantes</p>
+    </div>
+    <section style="margin-top: 10px; margin-left: 10px; ">
+        <a id="fisicaExample" href="javascript:void(0);"style="color:#1b70ff;">Breve historia de la fisica</a><br>
+        <a id="piratasExample" href="javascript:void(0);"style="color:#1b70ff;">Algunos piratas interesantes</a><br>
+        <a id="batallasExample" href="javascript:void(0);"style="color:#1b70ff;">Batallas de la segunda guerra mundial</a><br>
+        <a id="musicaExample" href="javascript:void(0);"style="color:#1b70ff;">Influencias en la musica clasica occidental</a><br>
+        <a id="marvelExample" href="javascript:void(0);"style="color:#1b70ff;">Relaciones de pareja en el universo Marvel (english)</a><br>
+    </section>
+  </div>
+</div>
+<div id="supportModal" class="modal">
+  <div class="modal-content" style="padding: 15px;margin-top: 2%;">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Apoya este desarrollo</h2>
+      <p>Comparte, comenta, contribuye</p>
+    </div>
+    <section style="margin-top: 10px; margin-left: 10px; ">
+      <p style="color: black;"> 
+        Si esta herramienta te resulta util, interesante, te gusta, o simplemente quieres ayudar, te invito a que la compartas para que mas gente la conozca.<br>
+        Si quieres mandar alguna sugerencia o comentario, puedes mandar un correo aqui:
+        <a href="mailto:wikigrafos.ng@gmail.com" style="color:#1b70ff;">Correo</a><br>
+        Si quiere aportar economicamente al proyecto lo puedes hacen aqui:
+        <a href="https://www.buymeacoffee.com/nicogaudenE" style="color:#1b70ff;">Contribuye</a><br> 
+      </p>
+    </section>
+  </div>
+</div>
+<div id="aboutModal" class="modal">
+  <div class="modal-content" style="padding: 15px;margin-top: 2%;">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Acerca del Proyecto</h2>
+      <p>Motivaciones y usos</p>
+    </div>
+    <section style="margin-top: 10px; margin-left: 10px; ">
+      <h3> ¿Qué es WikiGrafo?</h3>  
+      <p style="color: black;">
+          WikiGrafo es una herramienta gratiuta y <a href="https://nicogaudenzi.com"style="color:#1b70ff;">abierta</a> diseñada para explorar relaciones entre entidades de <a style="color:#1b70ff;" href="https://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a> de manera interactiva.
+      </p>
+      <h3> Motivaciones</h3>
+      <p style="color: black;"> En mi experiencia con los procesos de aprendizaje, despues de años como aprendiz, como maestro y como investigador en epistemologia, he llegado a la conviccion de que para que la informacion se convierta en entendimiento, no basta con conocer la definicion y el contenido de los conceptos: es fundamental estudiar las relaciones entre ellos.
+        Por esta razon, herramientas nemotecnicas como los "mapas mentales" o el uso de codigos de colores o etiquetas en el proceso de tomar notas, asi como las tecnologias modernas de visualizacion de datos resultan indispesables en un contexto en el que la informacion abunda al punto de ser abrumadora.
+        WikiGrafo hace uso de una tecnologia relativamente reciente conocida como "Grafica de conocimiento" o "Red semantica" que consiste en organizar la informacion en terminos de "nodos" y "conexiones", y permite al usuario construir sus propias graficas de manera interactiva basadas en la informacion almacenada en Wikidata.
+      </p>
+      <h3>Usos</h3>
+      <p style="color: black;">
+        WikiGrafo puede resultar util como herramienta de enseñanza/aprendizaje, ayuda a la investigacion de eventos y personajes historicos y promueve la exploracion y descubrimineto de informacion "sorpresiva": datos o relaciones que dificilmente se nos hubiera ocurrido buscar directamente pero que una vez encontramos resustan interesantes. 
+      </p>
+      <h3>Limitaciones</h3>
+      <p style="color: black;">
+        Puesto que la informacion que Wikigrafo extrae esta basada en el trabajo colaborativo de los usuarios de distintos projectos "wiki", la cantidad y calidad de la misma cumple con estandares similares que funtes como Wikipedia, para bien y para mal. Por ejemplo, puede ser que en un idioma exista mucho contenido sobre una entidad y en otro haya poco o nada.
+      </p>
+        
+    </section>
+  </div>
+</div>
+
+  <div id="query" style="margin: 25px;">
+    <div id="Charts" style="margin-top: 25px;display: flex;">
+      <div id="leftPanel" style=" width: 20%">
+        <div id="imgLoader" class="loader" style="margin-top: 25px; margin-left:35px; visibility: hidden;display: none;"></div>
+        <img id="img" src="https://www.clker.com/cliparts/A/Y/O/m/o/N/placeholder-md.png" width="150 " height="150" style="margin-top: 25px; margin-left:80px;border: 3px solid #1b70ff;"/>
+        <h3 style="margin-top: 25px; margin-left:35px;color:#1b70ff;">Relaciones Directas</h3>
+        <div id="resultLoader" class="loader" style="margin-top: 25px; margin-left:35px; visibility: hidden;display: none;"></div>
+        <div id="result" style="margin: 10px; height:100%; "></div>
+      </div>
+      <div id="center_panel" style="width: 60%;height :100%">
+        <div id="graph" style="border-style:solid;border-color:#1b70ff;background-color: black;" >
+          <svg id="svg" style="width: 100%; height :600px"></svg>
+        </div>
+        <div style="border-style: solid; border-color:  #1b70ff;">
+          <h3 style="color:#1b70ff;margin: 10px;">Descripcion</h3>
+          <p id="description" style="margin-left:20px;border: 1px;"></p>
+          <a id="wikilink" href="" target="_blank" style="color: #1b70ff;margin: 10px;">Ir al articulo en Wikipedia</a>
+        </div>
+        <div style="display:flex;justify-content: space-evenly;">
+          <div style="display: contents;">
+              <div id="quantityLoader" class="loader" style="margin-top: 25px; margin-left:35px; visibility: hidden;display: none;"></div> 
+                <div id="quantityContainer">
+                <h3 style="color:#1b70ff;">Cantidades</h3>
+                <div style="min-width: 400px;" id="quantity"></div>
+              </div>
+            </div>
+            <div style="display: contents;"> 
+              <div id="resourcesLoader" class="loader" style="margin-top: 25px; margin-left:35px; visibility: hidden;display: none;"></div> 
+              <div id="resourcesContainer" >
+                <h3 style="color:#1b70ff;">Recursos</h3>
+                <div style="min-width: 400px;"id="resources"></div>
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <div id="right_panel" style="width: 20%;height:100%; ">
+        <h3 style="margin-top: 25px; margin-left:35px;color:#1b70ff;">Relaciones Inversas</h3>
+        <div id="reverseLoader" class="loader" style="margin-top: 25px; margin-left:35px; visibility: hidden;display: none;"></div>
+        <div id="reverse" style="margin: 25px;"></div>
+      </div>   
+    </div>
+    <script type="module" src="./js/queryHandler.js" ></script>
+    <script type="module" src="./js/wikigrafoDataRepositories.js" ></script>
+  <script type="module" src="./js/force_directed_graph.js" ></script>
+  <script type="module" src="./js/wikigrafo_events.js" ></script>
+  <script type="module" src="./js/asyncNotifications.js" ></script>
+  <script type="module" src="./js/modals.js" ></script>
+  <script type="module" src="./js/entitySelector.js" ></script>
+  <script type="module" src="./js/collapsibleIndentTree.js" ></script>
+  <script type="module" src="./js/local_IO.js" ></script>
+  <script type="module" src="./js/detailsManager.js" ></script>
+  <script type="module" src="./js/examples.js" ></script>
+  <script type="module" src="./js/fisica.js" ></script>
+  <script type="module" src="./js/batalla.js" ></script>
+  <script type="module" src="./js/marvel.js" ></script>
+  <script type="module" src="./js/musica.js" ></script>
+  <script type="module" src="./js/piratas.js" ></script>
+</body>

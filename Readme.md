@@ -1,0 +1,10 @@
+    WikiGrafo es una herramienta gratiuta y abierta diseñada para explorar relaciones entre entidades de [[https://www.wikidata.org/wiki/Wikidata:Main_Page]] Wikidata de manera interactiva.
+      ### Motivaciones
+       En mi experiencia con los procesos de aprendizaje, despues de años como aprendiz, como maestro y como investigador en epistemologia, he llegado a la conviccion de que para que la informacion se convierta en entendimiento, no basta con conocer la definicion y el contenido de los conceptos: es fundamental estudiar las relaciones entre ellos.
+        Por esta razon, herramientas nemotecnicas como los "mapas mentales" o el uso de codigos de colores o etiquetas en el proceso de tomar notas, asi como las tecnologias modernas de visualizacion de datos resultan indispesables en un contexto en el que la informacion abunda al punto de ser abrumadora.
+        WikiGrafo hace uso de una tecnologia relativamente reciente conocida como "Grafica de conocimiento" o "Red semantica" que consiste en organizar la informacion en terminos de "nodos" y "conexiones", y permite al usuario construir sus propias graficas de manera interactiva basadas en la informacion almacenada en Wikidata.
+      
+      ### Usos
+        WikiGrafo puede resultar util como herramienta de enseñanza/aprendizaje, ayuda a la investigacion de eventos y personajes historicos y promueve la exploracion y descubrimineto de informacion "sorpresiva": datos o relaciones que dificilmente se nos hubiera ocurrido buscar directamente pero que una vez encontramos resustan interesantes. 
+      ### Limitaciones
+        Puesto que la informacion que Wikigrafo extrae esta basada en el trabajo colaborativo de los usuarios de distintos projectos "wiki", la cantidad y calidad de la misma cumple con estandares similares que funtes como Wikipedia, para bien y para mal. Por ejemplo, puede ser que en un idioma exista mucho contenido sobre una entidad y en otro haya poco o nada.

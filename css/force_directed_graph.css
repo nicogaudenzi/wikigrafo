@@ -1,0 +1,22 @@
+
+/* http://bl.ocks.org/mbostock/4062045 */
+
+
+.node_selected > circle {
+  stroke: #f9ff00;
+  stroke-width: 1.5px;
+}
+.nodelabel {fill:white;}
+
+.link_selected {
+	fill : none;
+  stroke: cornflowerblue;
+  stroke-width: 3.5px;
+}
+circle {
+  fill: #1b70ff;;
+}
+line{
+  stroke: azure;
+}
+  
