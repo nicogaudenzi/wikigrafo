@@ -1,4 +1,4 @@
-import * as d3 from "https://cdn.skypack.dev/d3@7";
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import {queryCache, selectedNode,linkCache,vGraph,inVgraphButNotQueryCache} from './wikigrafoDataRepositories.js'
 import {betterDirectRelations} from './predefinedQueries.js';
 import {queryHandler} from './queryHandler.js'
@@ -90,7 +90,7 @@ function collapsibleIndentTree(data, options = {}) {
       .attr("viewBox", [-marginLeft,  - marginTop, 200, height])
 
     // Update the nodes…
-    const node = gNode.selectAll("g")
+    const Node = gNode.selectAll("g")
       .data(nodes, d => d.id);
 
     // Enter any new nodes at the parent's previous position.
@@ -130,8 +130,9 @@ function collapsibleIndentTree(data, options = {}) {
 
       });
 
-    
+      
     //Operations text
+    if(d.children!=null){
     nodeEnter.append("text")
     .attr("dy", "0.32em")
     .attr("dx",145)
@@ -145,9 +146,10 @@ function collapsibleIndentTree(data, options = {}) {
         return "S"}
 
       if(queryCache.data[d.data.wid]) {return "L"}
+
       return "+"})
       .on("click",d=> appendAndSelect(d))
-
+    }
 
     // Transition nodes to their new position.
     const nodeUpdate = node.merge(nodeEnter).transition().duration(duration).ease(ease)
